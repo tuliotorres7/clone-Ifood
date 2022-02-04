@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "356039045193",
+    "project_id": "digiofertas-db21e",
+    "storage_bucket": "digiofertas-db21e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356039045193:android:e61831d5c9e21ebb0d8f98",
+        "android_client_info": {
+          "package_name": "br.com.digi_ofertas.digi_ofertas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356039045193-18h13a2rrmln7cpt6s6doc8hvsa2gng0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd8PWkLVOU_uA3xhn3ioYriZc3004H_cg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356039045193-18h13a2rrmln7cpt6s6doc8hvsa2gng0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
