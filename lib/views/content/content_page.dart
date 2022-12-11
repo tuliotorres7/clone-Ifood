@@ -1,37 +1,48 @@
-import 'package:digi_ofertas/core/theme/app_icons.dart';
+import 'package:digi_ofertas/core/theme/app_cores.dart';
+import 'package:digi_ofertas/core/theme/app_typografia.dart';
 import 'package:flutter/material.dart';
+import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
-class ContentPage extends StatelessWidget {
-  //const ({ Key? key }) : super(key: key);
+import 'componentes/cabecalho_local_component.dart';
+
+class ContentPage extends StatefulWidget {
+  @override
+  _ContentPageState createState() => _ContentPageState();
+}
+
+class _ContentPageState extends State<ContentPage>
+    with SingleTickerProviderStateMixin {
+  late TabController tabController;
+  @override
+  void initState() {
+    tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).padding.top,
+          CabecalhoLocalComponent(
+            localizacao: "Belo Horizonte",
+          ),
+          TabBar(
+              labelColor: Colors.black,
+              labelStyle: AppTipografia.bodyText(context)
+                  ?.copyWith(color: Colors.black),
+              indicator: MaterialIndicator(
+                  color: AppColors.corPrimaria,
+                  height: 2,
+                  topLeftRadius: 5,
+                  topRightRadius: 5),
+              controller: tabController,
+              tabs: [
+                Tab(
+                  text: 'Restaurante',
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 8),
-                      child: Row(
-                        children: [
-                          Text('"Silvestre verraz , 94"'),
-                          AppIcon(AppIcons.arrowDown),
-                        ],
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          )
+                Tab(text: 'Lanchonete'),
+              ])
         ],
       ),
     );
