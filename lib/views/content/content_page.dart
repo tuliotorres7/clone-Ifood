@@ -22,7 +22,7 @@ class _ContentPageState extends State<ContentPage>
     super.initState();
   }
 
-  int _indexAtual = 1;
+  int _indexAtual = 0;
 
   @override
   Widget build(BuildContext context) {

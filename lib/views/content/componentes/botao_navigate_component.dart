@@ -8,7 +8,10 @@ class BotaoNavegacaoComponent extends StatelessWidget {
   final Function(int) onTap;
 
   const BotaoNavegacaoComponent(
-      {Key? key, required this.items, this.indexAtual = 0, required this.onTap})
+      {Key? key,
+      required this.items,
+      required this.indexAtual,
+      required this.onTap})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -46,13 +49,13 @@ class BotaoNavegacaoItemComponent extends StatelessWidget {
       String? iconeAtivo,
       String? icone,
       bool? isAtivo,
-      Function? onTap}) {
+      Function()? onTap}) {
     return BotaoNavegacaoItemComponent(
       label: label ?? this.label,
       iconeAtivo: iconeAtivo ?? this.iconeAtivo,
       icone: icone ?? this.icone,
       isAtivo: isAtivo ?? this.isAtivo,
-      onTap: this.onTap,
+      onTap: onTap ?? this.onTap,
     );
   }
 
