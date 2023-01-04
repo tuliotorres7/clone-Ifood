@@ -5,6 +5,6 @@ import 'app_cores.dart';
 class AppTheme {
   static ThemeData get tema => ThemeData(
       fontFamily: 'Nunito-Sans',
-      primarySwatch: AppColors.corPrimaria,
+      primarySwatch: AppCores.corPrimaria,
       textTheme: TextTheme());
 }

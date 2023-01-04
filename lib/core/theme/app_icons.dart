@@ -7,7 +7,9 @@ import 'package:flutter_svg/svg.dart';
 const String pathIcons = 'assets/icons/';
 
 class AppIcons {
-  static const arrowDown = '${pathIcons}arrow_down.svg';
+  static const arrowDown = '${pathIcons}ordenacao/arrow_down.svg';
+  static const homeActive = '${pathIcons}botoes/home_active.svg';
+  static const home = '${pathIcons}botoes/home.svg';
 }
 
 class AppIcon extends StatelessWidget {
@@ -23,7 +25,7 @@ class AppIcon extends StatelessWidget {
       icon,
       height: this.size.height,
       width: this.size.width,
-      color: AppColors.corPrimaria,
+      color: this.color,
     );
   }
 }

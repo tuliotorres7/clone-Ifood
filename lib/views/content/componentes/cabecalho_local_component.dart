@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_cores.dart';
 import '../../../core/theme/app_icons.dart';
-import '../../../core/theme/app_typografia.dart';
+import '../../../core/theme/app_tipografia.dart';
 
 class CabecalhoLocalComponent extends StatelessWidget {
   final String localizacao;
@@ -25,11 +25,11 @@ class CabecalhoLocalComponent extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(localizacao,
-                        style: AppTipografia.bodyTextBold(context)),
+                        style: AppTipografia.localTextStyle(context)),
                     AppIcon(
                       AppIcons.arrowDown,
                       size: Size(20, 20),
-                      color: AppColors.corPrimaria,
+                      color: AppCores.corPrimaria,
                     ),
                   ],
                 ),
