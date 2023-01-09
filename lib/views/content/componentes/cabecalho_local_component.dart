@@ -11,33 +11,53 @@ class CabecalhoLocalComponent extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).padding.top,
-          ),
-          Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: Row(
-                  children: [
-                    Text(localizacao,
-                        style: AppTipografia.localTextStyle(context)),
-                    AppIcon(
-                      AppIcons.arrowDown,
-                      size: Size(20, 20),
-                      color: AppCores.corPrimaria,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
+    return SliverPersistentHeader(
+      delegate: _LocalizacaoCabecalhoComponentDelegate(localizacao),
     );
+  }
+}
+
+class _LocalizacaoCabecalhoComponentDelegate
+    extends SliverPersistentHeaderDelegate {
+  final String localizacao;
+  _LocalizacaoCabecalhoComponentDelegate(this.localizacao);
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Row(
+                children: [
+                  Text(localizacao,
+                      style: AppTipografia.localTextStyle(context)),
+                  AppIcon(
+                    AppIcons.arrowDown,
+                    size: Size(20, 20),
+                    color: AppCores.corPrimaria,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  @override
+  // TODO: implement maxExtent
+  double get maxExtent => 40;
+
+  @override
+  // TODO: implement minExtent
+  double get minExtent => 40;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }

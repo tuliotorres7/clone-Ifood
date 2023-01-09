@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import '../../../core/theme/app_cores.dart';
+import '../../../core/theme/app_icons.dart';
 import '../../../core/theme/app_tipografia.dart';
 
 class ConteudoTabBarComponent extends StatelessWidget {
@@ -14,6 +15,19 @@ class ConteudoTabBarComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return SliverPersistentHeader(
+      delegate: _ConteudoTabBarComponentDelegate(controller, onTap),
+    );
+  }
+}
+
+class _ConteudoTabBarComponentDelegate extends SliverPersistentHeaderDelegate {
+  final TabController controller;
+  final Function(int) onTap;
+  _ConteudoTabBarComponentDelegate(this.controller, this.onTap);
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 200),
       child: TabBar(
@@ -39,5 +53,18 @@ class ConteudoTabBarComponent extends StatelessWidget {
             )
           ]),
     );
+  }
+
+  @override
+  // TODO: implement maxExtent
+  double get maxExtent => 50;
+
+  @override
+  // TODO: implement minExtent
+  double get minExtent => 50;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }

@@ -16,24 +16,22 @@ class BotaoNavegacaoComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(color: Colors.blue),
         child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: items
-                    .map((e) => e.copyWith(
-                          isAtivo: items.indexOf(e) == indexAtual,
-                          onTap: () => onTap(items.indexOf(e)),
-                        ))
-                    .toList(),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).padding.bottom)
-          ],
-        ));
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: items
+                .map((e) => e.copyWith(
+                      isAtivo: items.indexOf(e) == indexAtual,
+                      onTap: () => onTap(items.indexOf(e)),
+                    ))
+                .toList(),
+          ),
+        ),
+      ],
+    ));
   }
 }
 
@@ -73,10 +71,10 @@ class BotaoNavegacaoItemComponent extends StatelessWidget {
     return GestureDetector(
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Column(children: [
             AppIcon(isAtivo ? iconeAtivo : icone,
-                color: Colors.black, size: Size(20, 20)),
+                color: Colors.black, size: Size(20, 25)),
             Text(label,
                 style: TextStyle(
                     fontSize: 10,

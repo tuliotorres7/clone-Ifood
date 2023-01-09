@@ -1,10 +1,10 @@
-import 'package:digi_ofertas/core/theme/app_cores.dart';
+import 'package:digi_ofertas/controllers/conteudo_controller.dart';
 import 'package:digi_ofertas/core/theme/app_icons.dart';
-import 'package:digi_ofertas/core/theme/app_tipografia.dart';
+import 'package:digi_ofertas/models/categoria.dart';
 import 'package:digi_ofertas/views/content/componentes/botao_navigate_component.dart';
 import 'package:digi_ofertas/views/content/componentes/conteudo_tab_bar_component.dart';
+import 'package:digi_ofertas/views/content/componentes/item_categoria_component.dart';
 import 'package:flutter/material.dart';
-import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import 'componentes/cabecalho_local_component.dart';
 
@@ -16,9 +16,13 @@ class ContentPage extends StatefulWidget {
 class _ContentPageState extends State<ContentPage>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
+  final controller = ConteudoController();
+  late List<Categoria> categorias;
+
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
+    categorias = controller.getCategorias();
     super.initState();
   }
 
@@ -27,17 +31,48 @@ class _ContentPageState extends State<ContentPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
+        body: SafeArea(
+      child: NestedScrollView(
+        physics: BouncingScrollPhysics(),
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            CabecalhoLocalComponent(localizacao: "Belo Horizonte, 94"),
+            ConteudoTabBarComponent(
+                controller: tabController, onTap: (index) {})
+          ];
+        },
+        body: Column(children: [
           Expanded(
-            child: Column(
-              children: [
-                CabecalhoLocalComponent(
-                  localizacao: "Belo Horizonte",
-                ),
-                ConteudoTabBarComponent(
-                    controller: tabController, onTap: (index) {})
-              ],
+            child: RefreshIndicator(
+              onRefresh: () async {
+                return await Future.value();
+              },
+              child: CustomScrollView(
+                physics: BouncingScrollPhysics(),
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 86,
+                      child: ListView.builder(
+                        itemCount: categorias.length,
+                        scrollDirection: Axis.horizontal,
+                        physics: BouncingScrollPhysics(),
+                        itemBuilder: (BuildContext context, int index) {
+                          return Padding(
+                            padding: EdgeInsets.only(
+                                left: index == 0 ? 16 : 0,
+                                right:
+                                    index == categorias.length - 1 ? 16 : 10),
+                            child: ItemCategoriaComponent(
+                              categoria: categorias[index],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           BotaoNavegacaoComponent(
@@ -61,8 +96,8 @@ class _ContentPageState extends State<ContentPage>
                     iconeAtivo: AppIcons.homeActive,
                     icone: AppIcons.home),
               ]),
-        ],
+        ]),
       ),
-    );
+    ));
   }
 }
