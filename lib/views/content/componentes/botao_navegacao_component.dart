@@ -1,6 +1,7 @@
-import 'package:digi_ofertas/core/theme/app_cores.dart';
 import 'package:digi_ofertas/core/theme/app_icons.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/theme/app_cores.dart';
 
 class BotaoNavegacaoComponent extends StatelessWidget {
   final List<BotaoNavegacaoItemComponent> items;
@@ -16,22 +17,27 @@ class BotaoNavegacaoComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        decoration: BoxDecoration(color: AppCores.white),
         child: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: items
-                .map((e) => e.copyWith(
-                      isAtivo: items.indexOf(e) == indexAtual,
-                      onTap: () => onTap(items.indexOf(e)),
-                    ))
-                .toList(),
-          ),
-        ),
-      ],
-    ));
+          children: [
+            Container(
+              height: 1,
+              color: AppCores.grey,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: items
+                    .map((e) => e.copyWith(
+                          isAtivo: items.indexOf(e) == indexAtual,
+                          onTap: () => onTap(items.indexOf(e)),
+                        ))
+                    .toList(),
+              ),
+            ),
+          ],
+        ));
   }
 }
 

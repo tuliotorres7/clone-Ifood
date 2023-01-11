@@ -25,6 +25,13 @@ class AppTipografia {
         ?.copyWith(color: AppCores.corPrimaria, fontWeight: FontWeight.w700);
   }
 
+  static TextStyle? filterItemStyle(BuildContext context) {
+    return Theme.of(context).textTheme.bodyText1?.copyWith(
+        color: AppCores.corPrimaria,
+        fontWeight: FontWeight.normal,
+        fontSize: 13);
+  }
+
   static TextStyle? localTextStyle(BuildContext context) {
     return Theme.of(context)
         .textTheme
