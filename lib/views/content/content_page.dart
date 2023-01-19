@@ -1,6 +1,8 @@
 import 'package:digi_ofertas/controllers/conteudo_controller.dart';
 import 'package:digi_ofertas/core/theme/app_icons.dart';
+import 'package:digi_ofertas/core/theme/app_imagens.dart';
 import 'package:digi_ofertas/models/categoria.dart';
+import 'package:digi_ofertas/views/content/componentes/banners_component.dart';
 import 'package:digi_ofertas/views/content/componentes/botao_navegacao_component.dart';
 import 'package:digi_ofertas/views/content/componentes/conteudo_tab_bar_component.dart';
 import 'package:digi_ofertas/views/content/componentes/filtros_component.dart';
@@ -74,6 +76,17 @@ class _ContentPageState extends State<ContentPage>
                               );
                             },
                           ),
+                        ),
+                      ),
+                      SliverToBoxAdapter(
+                        child: SizedBox(
+                          height: 170,
+                          child: BannersComponent(banners: [
+                            BannerItemComponent(pathImagem: AppImagens.banner1),
+                            BannerItemComponent(pathImagem: AppImagens.banner2),
+                            BannerItemComponent(pathImagem: AppImagens.banner3),
+                            BannerItemComponent(pathImagem: AppImagens.banner4),
+                          ]),
                         ),
                       ),
                     ],

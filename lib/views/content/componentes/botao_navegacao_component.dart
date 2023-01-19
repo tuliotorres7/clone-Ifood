@@ -25,7 +25,7 @@ class BotaoNavegacaoComponent extends StatelessWidget {
               color: AppCores.grey,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              padding: const EdgeInsets.only(left: 24, right: 24, top: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: items
