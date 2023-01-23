@@ -34,8 +34,8 @@ class _LocalizacaoCabecalhoComponentDelegate
                 children: [
                   Text(localizacao,
                       style: AppTipografia.localTextStyle(context)),
-                  AppIcon(
-                    AppIcons.arrowDown,
+                  AppIcone(
+                    AppIcones.arrowDown,
                     size: Size(20, 20),
                     color: AppCores.corPrimaria,
                   ),

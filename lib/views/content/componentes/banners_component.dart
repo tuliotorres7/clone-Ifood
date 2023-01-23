@@ -21,7 +21,7 @@ class _BannersComponentState extends State<BannersComponent> {
 
   _onChangePage() {
     setState(() {
-      _indexAtual = _pageController.page!.toInt();
+      _indexAtual = _pageController.page!.round();
     });
   }
 

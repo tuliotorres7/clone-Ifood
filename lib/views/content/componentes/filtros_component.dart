@@ -32,19 +32,19 @@ class _FiltrosComponentDelegate extends SliverPersistentHeaderDelegate {
             ),
             ItemFiltroComponent(
               label: 'Ordenar',
-              icone: AppIcons.arrowDown,
+              icone: AppIcones.arrowDown,
             ),
             ItemFiltroComponent(
               label: 'Entega grátis',
-              icone: AppIcons.arrowDown,
+              icone: AppIcones.arrowDown,
             ),
             ItemFiltroComponent(
               label: 'Pra retirar',
-              icone: AppIcons.arrowDown,
+              icone: AppIcones.arrowDown,
             ),
             ItemFiltroComponent(
               label: 'Filtros',
-              icone: AppIcons.arrowDown,
+              icone: AppIcones.arrowDown,
             ),
             SizedBox(
               width: 16,
@@ -94,7 +94,7 @@ class ItemFiltroComponent extends StatelessWidget {
             if (icone != null)
               Padding(
                 padding: const EdgeInsets.only(left: 4),
-                child: AppIcon(
+                child: AppIcone(
                   icone!,
                   color: AppCores.black54,
                   size: Size(14, 14),

@@ -79,7 +79,7 @@ class BotaoNavegacaoItemComponent extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Column(children: [
-            AppIcon(isAtivo ? iconeAtivo : icone,
+            AppIcone(isAtivo ? iconeAtivo : icone,
                 color: Colors.black, size: Size(20, 25)),
             Text(label,
                 style: TextStyle(
