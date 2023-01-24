@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Empresa {
   final String nome;
   final String categoria;
@@ -49,4 +51,37 @@ class Empresa {
         favorito: favorito ?? this.favorito,
         fotoUrl: fotoUrl ?? this.fotoUrl);
   }
+
+  Map<String, dynamic> toMap() {
+    final result = <String, dynamic>{};
+
+    result.addAll({'nome': nome});
+    result.addAll({'categoria': categoria});
+    result.addAll({'frete': frete});
+    result.addAll({'distancia': distancia});
+    result.addAll({'avaliacao': avaliacao});
+    result.addAll({'tempoDePreparo': tempoDePreparo});
+    result.addAll({'favorito': favorito});
+    result.addAll({'fotoUrl': fotoUrl});
+
+    return result;
+  }
+
+  factory Empresa.fromMap(Map<String, dynamic> map) {
+    return Empresa(
+      nome: map['nome'] ?? '',
+      categoria: map['categoria'] ?? '',
+      frete: map['frete'] ?? '',
+      distancia: map['distancia'] ?? '',
+      avaliacao: map['avaliacao']?.toDouble() ?? 0.0,
+      tempoDePreparo: [],
+      favorito: map['favorito'] ?? false,
+      fotoUrl: map['fotoUrl'] ?? '',
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Empresa.fromJson(String source) =>
+      Empresa.fromMap(json.decode(source));
 }

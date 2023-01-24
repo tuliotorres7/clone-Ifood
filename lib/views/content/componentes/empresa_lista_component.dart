@@ -3,8 +3,6 @@ import 'package:digi_ofertas/core/theme/app_icons.dart';
 import 'package:digi_ofertas/core/theme/app_tipografia.dart';
 import 'package:digi_ofertas/models/empresa.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/foundation/key.dart';
 
 List<Empresa> get empresas => [
       Empresa(

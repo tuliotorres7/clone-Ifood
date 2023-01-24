@@ -2,7 +2,6 @@ import 'package:digi_ofertas/models/categoria.dart';
 import 'package:flutter/material.dart';
 
 import 'package:digi_ofertas/core/theme/app_cores.dart';
-import 'package:digi_ofertas/core/theme/app_imagens.dart';
 import 'package:digi_ofertas/core/theme/app_tipografia.dart';
 
 class ItemCategoriaComponent extends StatelessWidget {

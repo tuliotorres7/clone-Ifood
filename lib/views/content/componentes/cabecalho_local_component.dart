@@ -49,11 +49,9 @@ class _LocalizacaoCabecalhoComponentDelegate
   }
 
   @override
-  // TODO: implement maxExtent
   double get maxExtent => 40;
 
   @override
-  // TODO: implement minExtent
   double get minExtent => 40;
 
   @override

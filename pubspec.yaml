@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   tab_indicator_styler: ^1.0.0
   flutter_svg: ^0.19.3
+  get: ^3.25.4
+  http: ^0.12.2
 
 
   # The following adds the Cupertino Icons font to your application.
