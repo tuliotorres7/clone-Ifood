@@ -4,59 +4,6 @@ import 'package:digi_ofertas/core/theme/app_tipografia.dart';
 import 'package:digi_ofertas/models/empresa.dart';
 import 'package:flutter/material.dart';
 
-List<Empresa> get empresas => [
-      Empresa(
-          categoria: 'Restaurante',
-          avaliacao: 4.6,
-          distancia: '1',
-          favorito: true,
-          fotoUrl:
-              "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-bar-restaurant-logo-design-template-a917bf7521aa74b08179cad073df41c1_screen.jpg?ts=1597302425",
-          frete: '10',
-          nome: 'Tia marta',
-          tempoDePreparo: [60, 80]),
-      Empresa(
-          categoria: 'Restaurante',
-          avaliacao: 4.6,
-          distancia: '1',
-          favorito: true,
-          fotoUrl:
-              "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-bar-restaurant-logo-design-template-a917bf7521aa74b08179cad073df41c1_screen.jpg?ts=1597302425",
-          frete: '10',
-          nome: 'Tia marta',
-          tempoDePreparo: [60, 80]),
-      Empresa(
-          categoria: 'Restaurante',
-          avaliacao: 4.6,
-          distancia: '1',
-          favorito: true,
-          fotoUrl:
-              "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-bar-restaurant-logo-design-template-a917bf7521aa74b08179cad073df41c1_screen.jpg?ts=1597302425",
-          frete: '10',
-          nome: 'Tia marta',
-          tempoDePreparo: [60, 80]),
-      Empresa(
-          categoria: 'Restaurante',
-          avaliacao: 4.6,
-          distancia: '1',
-          favorito: true,
-          fotoUrl:
-              "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-bar-restaurant-logo-design-template-a917bf7521aa74b08179cad073df41c1_screen.jpg?ts=1597302425",
-          frete: '10',
-          nome: 'Tia marta',
-          tempoDePreparo: [60, 80]),
-      Empresa(
-          categoria: 'Restaurante',
-          avaliacao: 4.6,
-          distancia: '1',
-          favorito: true,
-          fotoUrl:
-              "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-bar-restaurant-logo-design-template-a917bf7521aa74b08179cad073df41c1_screen.jpg?ts=1597302425",
-          frete: '10',
-          nome: 'Tia marta',
-          tempoDePreparo: [60, 80]),
-    ];
-
 class EmpresaItemComponent extends StatelessWidget {
   final Empresa empresa;
 
@@ -112,10 +59,9 @@ class EmpresaItemComponent extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text(empresa.tempoDePreparo[0].toString(),
-                          style: AppTipografia.detalhesEmpresa(context)),
+                      Text('10', style: AppTipografia.detalhesEmpresa(context)),
                       Text('-'),
-                      Text(empresa.tempoDePreparo[1].toString(),
+                      Text('40'.toString(),
                           style: AppTipografia.detalhesEmpresa(context)),
                       SizedBox(width: 4),
                       _Dot(),

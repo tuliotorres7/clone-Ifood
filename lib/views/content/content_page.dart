@@ -75,14 +75,14 @@ class _ContentPageState extends State<ContentPage>
                           ),
                         ),
                       ),
-                      SliverList(
-                          delegate: SliverChildListDelegate(
-                        empresas
-                            .map((e) => EmpresaItemComponent(
-                                  empresa: e,
-                                ))
-                            .toList(),
-                      ))
+                      // SliverList(
+                      //     delegate: SliverChildListDelegate(
+                      //   empresas
+                      //       .map((e) => EmpresaItemComponent(
+                      //             empresa: e,
+                      //           ))
+                      //       .toList(),
+                      // ))
                     ],
                   ),
                 ),
