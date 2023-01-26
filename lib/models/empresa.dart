@@ -1,9 +1,10 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 class Empresa {
   final String nome;
-  final String categoria;
-  final String frete;
+  final int categoria;
+  final double frete;
   final String distancia;
   final double avaliacao;
   final List<int> tempoDePreparo;
@@ -34,8 +35,8 @@ class Empresa {
 
   Empresa copyWith(
       {String? nome,
-      String? categoria,
-      String? frete,
+      int? categoria,
+      double? frete,
       String? distancia,
       double? avaliacao,
       List<int>? tempoDePreparo,
@@ -70,8 +71,8 @@ class Empresa {
   factory Empresa.fromMap(Map<String, dynamic> map) {
     return Empresa(
       nome: map['nome'] ?? '',
-      categoria: map['categoria'] ?? '',
-      frete: map['frete'] ?? '',
+      categoria: map['categoria'] ?? 0,
+      frete: map['frete']?.toDouble() ?? 0.0,
       distancia: map['distancia'] ?? '',
       avaliacao: map['avaliacao']?.toDouble() ?? 0.0,
       tempoDePreparo: [],

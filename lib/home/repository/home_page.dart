@@ -1,54 +1,39 @@
-import 'package:digi_ofertas/controllers/conteudo_controller.dart';
-import 'package:digi_ofertas/core/theme/app_icons.dart';
-import 'package:digi_ofertas/core/theme/app_imagens.dart';
-import 'package:digi_ofertas/core/theme/app_tipografia.dart';
-import 'package:digi_ofertas/http/repository/http_controller.dart';
-import 'package:digi_ofertas/models/categoria.dart';
+import 'package:digi_ofertas/home/repository/home_controller.dart';
 import 'package:digi_ofertas/models/empresa.dart';
-import 'package:digi_ofertas/views/content/componentes/banners_component.dart';
-import 'package:digi_ofertas/views/content/componentes/botao_navegacao_component.dart';
-import 'package:digi_ofertas/views/content/componentes/conteudo_tab_bar_component.dart';
-import 'package:digi_ofertas/views/content/componentes/empresa_lista_component.dart';
-import 'package:digi_ofertas/views/content/componentes/filtros_component.dart';
-import 'package:digi_ofertas/views/content/componentes/item_categoria_component.dart';
+import 'package:digi_ofertas/views/cardapio_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 
+import '../../controllers/conteudo_controller.dart';
 import '../../core/theme/app_cores.dart';
-import '../../http/repository/empresa_http_repository.dart';
-import 'componentes/cabecalho_local_component.dart';
+import '../../core/theme/app_icons.dart';
+import '../../core/theme/app_imagens.dart';
+import '../../core/theme/app_tipografia.dart';
+import '../../models/categoria.dart';
+import '../../views/content/componentes/banners_component.dart';
+import '../../views/content/componentes/botao_navegacao_component.dart';
+import '../../views/content/componentes/cabecalho_local_component.dart';
+import '../../views/content/componentes/empresa_lista_component.dart';
+import '../../views/content/componentes/filtros_component.dart';
+import '../../views/content/componentes/item_categoria_component.dart';
 
-class ContentPage extends StatefulWidget {
-  @override
-  _ContentPageState createState() => _ContentPageState();
-}
-
-class _ContentPageState extends State<ContentPage>
-    with SingleTickerProviderStateMixin {
-  late TabController tabController;
-  final controller = ConteudoController();
-  late List<Categoria> categorias;
-
-  @override
-  void initState() {
-    tabController = TabController(length: 2, vsync: this);
-    categorias = controller.getCategorias();
-    super.initState();
-  }
-
+class HomePage extends GetView<HomeController> {
+  final conteudoController = ConteudoController();
+  late List<Categoria> categorias = conteudoController.getCategorias();
   int _indexAtual = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppCores.white,
-        body: SafeArea(
-          child: NestedScrollView(
+        body: controller.obx((state) {
+          List<Empresa> empresas = List<Empresa>.from(state);
+          return SafeArea(
+              child: NestedScrollView(
             physics: BouncingScrollPhysics(),
             headerSliverBuilder: (context, innerBoxIsScrolled) {
               return [
                 CabecalhoLocalComponent(localizacao: "Belo Horizonte, 94"),
-                ConteudoTabBarComponent(
-                    controller: tabController, onTap: (index) {}),
                 FiltrosComponent()
               ];
             },
@@ -75,22 +60,24 @@ class _ContentPageState extends State<ContentPage>
                           ),
                         ),
                       ),
-                      // SliverList(
-                      //     delegate: SliverChildListDelegate(
-                      //   empresas
-                      //       .map((e) => EmpresaItemComponent(
-                      //             empresa: e,
-                      //           ))
-                      //       .toList(),
-                      // ))
+                      SliverList(
+                        delegate: SliverChildListDelegate(
+                          empresas
+                              .map((e) => EmpresaItemComponent(
+                                    empresa: e,
+                                  ))
+                              .toList(),
+                          //onPressed()=> Cardapio()
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
               _BotaoNavegacaoSecao(indexAtual: _indexAtual, onTap: (index) {}),
             ]),
-          ),
-        ));
+          ));
+        }));
   }
 }
 

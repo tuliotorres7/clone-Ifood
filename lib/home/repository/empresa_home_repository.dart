@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:digi_ofertas/models/empresa.dart';
 import 'package:digi_ofertas/repositories/interface_empresa_repository.dart';
 
-class EmpresaHttpRepository implements IEmpresaRepository {
+class EmpresaHomeRepository implements IEmpresaRepository {
   @override
   Future<List<Empresa>> findAllEmpresas() async {
     final response =

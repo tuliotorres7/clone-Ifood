@@ -48,7 +48,7 @@ class EmpresaItemComponent extends StatelessWidget {
                       SizedBox(width: 4),
                       _Dot(),
                       SizedBox(width: 4),
-                      Text(empresa.categoria,
+                      Text(empresa.categoria.toString(),
                           style: AppTipografia.detalhesEmpresa(context)),
                       SizedBox(width: 4),
                       _Dot(),
@@ -66,7 +66,7 @@ class EmpresaItemComponent extends StatelessWidget {
                       SizedBox(width: 4),
                       _Dot(),
                       SizedBox(width: 4),
-                      Text(empresa.frete,
+                      Text(empresa.frete.toString(),
                           style: AppTipografia.detalhesEmpresa(context)),
                     ],
                   )
