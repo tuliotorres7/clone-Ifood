@@ -1,6 +1,6 @@
 # digi_ofertas / clone do ifood
 
-A new Flutter project.
+clone do ifood, feito junto com o professor renato mota, via tutorial no youtube como forma de capacitação e aprendizado inicial de flutter
 
 ## Getting Started
 
