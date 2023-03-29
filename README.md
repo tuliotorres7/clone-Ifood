@@ -1,4 +1,4 @@
-# digi_ofertas
+# digi_ofertas / clone do ifood
 
 A new Flutter project.
 
